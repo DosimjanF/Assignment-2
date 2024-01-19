@@ -1,4 +1,4 @@
-package models;
+package modules;
 
 public class Employee extends Person {
     private String position;
@@ -28,9 +28,11 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "position='" + position + '\'' +
-                ", salary=" + salary +
-                '}';
+        return super.toString() + " earns " + getSalary();
+    }
+
+    @Override
+    public double getPaymentAmount() {
+        return this.salary;
     }
 }

@@ -1,7 +1,8 @@
-package models;
+package modules;
 
 public class Student extends Person {
     private double gpa;
+    public double salary;
 
     public Student(){
         super();
@@ -20,10 +21,17 @@ public class Student extends Person {
         return gpa;
     }
 
+
+
     @Override
     public String toString() {
-        return "Student{" +
-                "gpa=" + gpa +
-                '}';
+        return super.toString() + " earns " + getPaymentAmount();
+    }
+
+
+    @Override
+    public double getPaymentAmount() {
+        if (gpa > 2.67) {return 36660.0;}
+        return 0;
     }
 }

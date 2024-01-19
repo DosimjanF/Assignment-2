@@ -1,10 +1,11 @@
-package models;
+package modules;
 
-abstract public class Person {
+abstract public class Person implements Payable, Comparable<Person>{
     private static int id_gen = 1;
     private int id;
     private String name;
     private String surname;
+    private String position;
 
 
     public Person() {
@@ -24,6 +25,10 @@ abstract public class Person {
         this.surname = surname;
     }
 
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public int getId() {
         return id;
     }
@@ -36,12 +41,22 @@ abstract public class Person {
         return surname;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return Integer.compare((int) this.getPaymentAmount(), (int) o.getPaymentAmount());
+    }
+
+    @Override
+    public double getPaymentAmount() {
+        return 0;
+    }
+
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return getPosition() + ' ' + getId() + ": " + getName() + ' ' + getSurname();
     }
 }
