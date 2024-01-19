@@ -21,7 +21,10 @@ public class Student extends Person {
         return gpa;
     }
 
-
+    @Override
+    public String getPosition() {
+        return "Student";
+    }
 
     @Override
     public String toString() {
