@@ -47,7 +47,7 @@ abstract public class Person implements Payable, Comparable<Person>{
 
     @Override
     public int compareTo(Person o) {  // This method lets you compare salaries of two people
-        return Integer.compare((int) this.getPaymentAmount(), (int) o.getPaymentAmount());
+        return Double.compare(this.getPaymentAmount(), o.getPaymentAmount());
     }
 
     @Override
