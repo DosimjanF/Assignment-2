@@ -10,53 +10,53 @@ abstract public class Person implements Payable, Comparable<Person>{
 
     public Person() {
         this.id = id_gen++;
-    }
-    public Person(String name, String surname) {
+    }  // Default no argument constructor that creates an object with only id
+    public Person(String name, String surname) {  // This constructor lets you create an object with name and surname along with generating a unique id
         this.id = id_gen++;
         setName(name);
         setSurname(surname);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public int getId() {
         return id;
-    }
+    }  // This method returns the id
 
     public String getName() {
         return name;
-    }
+    }  // This method returns the name
 
     public String getSurname() {
         return surname;
-    }
+    }  // This method returns the surname
 
-    public String getPosition() {
+    public String getPosition() {  // This method returns the position
         return position;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }  // This is a setter for name
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }  // This is a setter for surname
+
+    public void setPosition(String position) {  // This is a setter for position
+        this.position = position;
+    }
+
     @Override
-    public int compareTo(Person o) {
+    public int compareTo(Person o) {  // This method lets you compare salaries of two people
         return Integer.compare((int) this.getPaymentAmount(), (int) o.getPaymentAmount());
     }
 
     @Override
     public double getPaymentAmount() {
         return 0;
-    }
+    }  // This method returns the salary
 
     @Override
-    public String toString() {
+    public String toString() {  // Returns the data of objects as a string
         return getPosition() + ' ' + getId() + ": " + getName() + ' ' + getSurname();
     }
 }
